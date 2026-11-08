@@ -1,0 +1,128 @@
+{
+  "project_version": "1.0.0",
+  "model_name": "Logistic Regression",
+  "best_params": {
+    "C": 0.3,
+    "l1_ratio": 1.0,
+    "solver": "saga"
+  },
+  "threshold": 0.31,
+  "target_sensitivity": 0.9,
+  "use_engineered_feature": false,
+  "features": [
+    "age",
+    "trestbps",
+    "chol",
+    "thalach",
+    "oldpeak",
+    "sex",
+    "fbs",
+    "exang",
+    "cp",
+    "restecg",
+    "slope",
+    "thal",
+    "ca"
+  ],
+  "label": "has_disease",
+  "label_inverted_from_raw_target": true,
+  "n_train": 241,
+  "n_test": 61,
+  "cleaning": {
+    "rows_in": 1025,
+    "duplicates_removed": 723,
+    "rows_out": 302,
+    "invalid_codes_set_missing": {
+      "ca": 4,
+      "thal": 2
+    }
+  },
+  "test_metrics_threshold_0.5": {
+    "threshold": 0.5,
+    "accuracy": 0.8032786885245902,
+    "precision": 0.8076923076923077,
+    "recall_sensitivity": 0.75,
+    "specificity": 0.8484848484848485,
+    "f1": 0.7777777777777778,
+    "roc_auc": 0.9015151515151515,
+    "tn": 28,
+    "fp": 5,
+    "fn": 7,
+    "tp": 21
+  },
+  "test_metrics_chosen_threshold": {
+    "threshold": 0.31,
+    "accuracy": 0.819672131147541,
+    "precision": 0.7428571428571429,
+    "recall_sensitivity": 0.9285714285714286,
+    "specificity": 0.7272727272727273,
+    "f1": 0.8253968253968254,
+    "roc_auc": 0.9015151515151515,
+    "tn": 24,
+    "fp": 9,
+    "fn": 2,
+    "tp": 26
+  },
+  "oof_train_metrics": {
+    "default_0.5": {
+      "threshold": 0.5,
+      "accuracy": 0.8506224066390041,
+      "precision": 0.87,
+      "recall_sensitivity": 0.7909090909090909,
+      "specificity": 0.9007633587786259,
+      "f1": 0.8285714285714286,
+      "roc_auc": 0.9124913254684247,
+      "tn": 118,
+      "fp": 13,
+      "fn": 23,
+      "tp": 87
+    },
+    "chosen": {
+      "threshold": 0.31,
+      "accuracy": 0.7966804979253111,
+      "precision": 0.7226277372262774,
+      "recall_sensitivity": 0.9,
+      "specificity": 0.7099236641221374,
+      "f1": 0.8016194331983806,
+      "roc_auc": 0.9124913254684247,
+      "tn": 93,
+      "fp": 38,
+      "fn": 11,
+      "tp": 99
+    }
+  },
+  "all_best_params": {
+    "Logistic Regression": {
+      "C": 0.3,
+      "l1_ratio": 1.0,
+      "solver": "saga"
+    },
+    "K-Nearest Neighbors": {
+      "n_neighbors": 21,
+      "p": 1,
+      "weights": "distance"
+    },
+    "Decision Tree": {
+      "criterion": "gini",
+      "max_depth": 3,
+      "min_samples_leaf": 10
+    },
+    "Random Forest": {
+      "max_depth": 5,
+      "max_features": "sqrt",
+      "min_samples_leaf": 5
+    },
+    "SVM (RBF)": {
+      "C": 1,
+      "gamma": 0.01
+    },
+    "Gradient Boosting": {
+      "learning_rate": 0.1,
+      "max_depth": 1,
+      "n_estimators": 200,
+      "subsample": 0.8
+    }
+  },
+  "selection_rule": "highest tuned CV ROC-AUC; within 1 SE prefer simpler model",
+  "best_cv_model": "Random Forest"
+}
