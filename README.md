@@ -81,6 +81,8 @@ exercise-induced angina, sex and ST depression. See [`reports/interpretation.md`
 
 ```
 ├── app/streamlit_app.py        # prediction interface
+├── notebooks/
+│   └── heart_disease_end_to_end.ipynb  # full walkthrough with outputs, stage by stage
 ├── data/raw/heart.csv          # original Kaggle file (never modified)
 ├── docs/
 │   ├── walkthrough.md          # every stage explained, with interview questions
@@ -105,6 +107,10 @@ exercise-induced angina, sex and ST depression. See [`reports/interpretation.md`
 └── tests/test_pipeline.py
 ```
 
+## Notebook
+
+[`notebooks/heart_disease_end_to_end.ipynb`](notebooks/heart_disease_end_to_end.ipynb) walks through all 12 stages with code, outputs, plots and the reasoning behind each decision. It imports the `src/heart` package, so the notebook and the scripts always use the same logic, and it checks that it reproduces the saved model exactly.
+
 ## Reproduce
 
 ```bash
@@ -116,6 +122,7 @@ python -m heart.eda         # figures + reports/data_profile.md
 python -m heart.train       # CV, tuning, threshold, test evaluation, saves the model (~1-2 min)
 python -m heart.interpret   # reports/interpretation.md
 pytest                      # 14 tests
+jupyter lab notebooks/      # optional: the walkthrough notebook
 streamlit run app/streamlit_app.py
 ```
 
